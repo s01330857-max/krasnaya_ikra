@@ -3,38 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Красная Икра премиум</title>
+<title>Красная Икра Премиум</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
     * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Montserrat', sans-serif; background: linear-gradient(160deg, #fff3f0, #ffe6e6); color: #333;}
-    header {background: linear-gradient(90deg, #ff4d4d, #ff8080); color: white; text-align: center; padding: 3rem 1rem;}
-    header h1 {font-size: 3rem; margin-bottom: 0.5rem;}
-    header p {font-size: 1.3rem;}
+    body {font-family: 'Montserrat', sans-serif; background: #fff0f5; color: #333; overflow-x: hidden;}
+    header {
+        background: linear-gradient(90deg, #ff4d4d, #ff9999);
+        color: white;
+        text-align: center;
+        padding: 4rem 1rem;
+        position: relative;
+        overflow: hidden;
+    }
+    header::before {
+        content: "";
+        position: absolute;
+        top: -50px; left: -50px; right: -50px; bottom: -50px;
+        background: url('https://images.unsplash.com/photo-1600185369243-cf3f4890f57b?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+        opacity: 0.1;
+        z-index: 0;
+    }
+    header h1 {font-size: 3rem; margin-bottom: 0.5rem; position: relative; z-index:1;}
+    header p {font-size: 1.3rem; position: relative; z-index:1;}
+
     main {padding: 2rem 1rem;}
     .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
-    .product {background: white; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); width: 250px; padding: 1rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s;}
-    .product:hover {transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.2);}
-    .product img {width: 100%; border-radius: 12px; margin-bottom: 1rem; transition: transform 0.3s;}
-    .product img:hover {transform: scale(1.05);}
-    .product h2 {font-size: 1.4rem; margin-bottom: 0.5rem;}
+    .product {
+        background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        width: 260px; padding: 1rem; text-align: center;
+        transition: transform 0.5s, box-shadow 0.5s, opacity 1s;
+        opacity: 0; transform: translateY(50px);
+    }
+    .product.visible {opacity:1; transform: translateY(0);}
+    .product img {width: 100%; border-radius: 15px; margin-bottom: 1rem; transition: transform 0.5s;}
+    .product img:hover {transform: scale(1.08);}
+    .product h2 {font-size: 1.5rem; margin-bottom: 0.5rem;}
     .product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;}
-    .order-section {max-width: 550px; margin: 0 auto; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
+
+    .order-section {
+        max-width: 600px; margin: 0 auto;
+        background: linear-gradient(160deg,#fff3f0,#ffe6e6);
+        padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        transition: opacity 1s, transform 1s; opacity:0; transform: translateY(50px);
+    }
+    .order-section.visible {opacity:1; transform: translateY(0);}
     .order-section h2 {text-align: center; margin-bottom: 1.5rem; color: #ff4d4d;}
     .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 500;}
-    .order-section input, .order-section select {width: 100%; padding: 0.9rem; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;}
-    .order-section button {margin-top: 1.5rem; width: 100%; padding: 1rem; background: linear-gradient(90deg,#ff4d4d,#ff9999); color: white; font-size: 1.2rem; border: none; border-radius: 10px; cursor: pointer; transition: 0.3s;}
-    .order-section button:hover {background: linear-gradient(90deg,#e60000,#ff6666);}
+    .order-section input, .order-section select {
+        width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem;
+    }
+    .order-section button {
+        margin-top: 1.5rem; width: 100%; padding: 1rem;
+        background: linear-gradient(90deg,#ff4d4d,#ff9999);
+        color: white; font-size: 1.2rem; border: none; border-radius: 12px; cursor: pointer;
+        transition: all 0.3s;
+    }
+    .order-section button:hover {
+        background: linear-gradient(90deg,#e60000,#ff6666);
+        transform: scale(1.05);
+    }
     #qrCode {text-align: center; margin-top: 2rem;}
     footer {text-align: center; padding: 2rem; color: #666;}
+
     @media (max-width:768px) {.products {flex-direction: column; align-items: center;}}
 </style>
 </head>
 <body>
 <header>
-    <h1>Красная Икра премиум</h1>
-    <p>Свежая, качественная икра от 2500 ₽ за 500 грамм. Удобная доставка и оплата по СБП</p>
+    <h1>Красная Икра Премиум</h1>
+    <p>Свежая, качественная икра от 2500 ₽ за 500 г. Удобная доставка и оплата по СБП</p>
 </header>
+
 <main>
     <section class="products">
         <div class="product">
@@ -76,6 +116,7 @@
         <div id="qrCode"></div>
     </section>
 </main>
+
 <footer>
     © 2025 Красная Икра. Все права защищены.
 </footer>
@@ -94,14 +135,21 @@
         }
 
         const paymentText = `Оплата по СБП:\n${product}\nИмя: ${name}\nТелефон: ${phone}`;
-
         document.getElementById('qrCode').innerHTML = '';
-        new QRCode(document.getElementById('qrCode'), {
-            text: paymentText,
-            width: 220,
-            height: 220
-        });
+        new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
     });
+
+    // Появление элементов при скролле
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {threshold: 0.2});
+
+    document.querySelectorAll('.product').forEach(el => observer.observe(el));
+    observer.observe(document.querySelector('.order-section'));
 </script>
 </body>
 </html>
