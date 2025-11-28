@@ -7,58 +7,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Montserrat', sans-serif; background:#1c1c1c; color:#fff; scroll-behavior:smooth;}
+body {font-family:'Montserrat', sans-serif; background:#f5f5f5; color:#1c1c1c; scroll-behavior:smooth;}
 header {
-    position:relative; height:60vh;
+    position:relative; height:50vh;
     display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-    color:#fff; background:#2a2a2a url('images/header-bg.jpg') center/cover no-repeat fixed;
+    background:#f0e8df url('images/header-bg.jpg') center/cover no-repeat;
 }
-header::after {content:""; position:absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.3);}
-header h1 {font-size:3rem; z-index:1; position:relative; margin-bottom:1rem; color:#ff3b3b;}
-header p {font-size:1.2rem; z-index:1; position:relative; max-width:800px; color:#f0f0f0; font-weight:500;}
+header h1 {font-size:2.5rem; margin-bottom:1rem; color:#c0392b;}
+header p {font-size:1.1rem; max-width:700px; color:#333; font-weight:500;}
 
 main {padding:2rem 1rem;}
-.products {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-bottom:3rem; position:relative;}
+.products {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-bottom:2rem;}
 .product {
-    background:#2e2e2e; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.5);
-    width:280px; padding:1rem; text-align:center; transition: transform 0.5s, opacity 1s; opacity:0; transform:translateY(50px);
-    position:relative; overflow:hidden;
+    background:#fff; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    width:260px; padding:1rem; text-align:center;
 }
-.product.visible {opacity:1; transform:translateY(0);}
-.product img {width:100%; border-radius:15px; margin-bottom:1rem; transition: transform 0.5s;}
-.product img:hover {transform:scale(1.05);}
-.product h2 {font-size:1.4rem; margin-bottom:0.5rem; color:#ff3b3b;}
-.product p {margin-bottom:1rem; font-weight:bold; color:#ff6600; font-size:1.2rem;}
-.product .desc {font-size:0.95rem; color:#ccc; font-weight:500;}
-
-/* Плавающая икра */
-.ikra-drop {width:30px; height:30px; background:url('images/ikra_small.png') no-repeat center/contain; position:absolute; animation:float 4s ease-in-out infinite; opacity:0.8;}
-@keyframes float {0% {transform: translateY(0) rotate(0deg);} 50% {transform: translateY(-12px) rotate(15deg);} 100% {transform: translateY(0) rotate(0deg);}}
+.product img {width:100%; border-radius:10px; margin-bottom:1rem;}
+.product h2 {font-size:1.3rem; margin-bottom:0.5rem; color:#c0392b;}
+.product p {margin-bottom:1rem; font-weight:bold; color:#e67e22;}
 
 .order-section {
-    max-width:650px; margin:0 auto; background:#2e2e2e; padding:2rem; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.5);
-    transition: opacity 1s, transform 1s; opacity:0; transform:translateY(50px);
+    max-width:600px; margin:0 auto; background:#fff; padding:2rem; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
-.order-section.visible {opacity:1; transform:translateY(0);}
-.order-section h2 {text-align:center; margin-bottom:1rem; color:#ff3b3b;}
-.order-section label {display:block; margin-bottom:0.5rem; margin-top:1rem; font-weight:500;}
-.order-section input, .order-section select {width:100%; padding:1rem; border-radius:12px; border:1px solid #555; background:#1c1c1c; color:#fff; font-size:1rem;}
-.order-section input::placeholder {color:#aaa;}
-.order-section button {margin-top:1.5rem; width:100%; padding:1rem; background:#ff3b3b; color:white; font-size:1.2rem; border:none; border-radius:12px; cursor:pointer; transition:all 0.3s;}
-.order-section button:hover {background:#ff6600; transform:scale(1.05);}
-#qrCode {text-align:center; margin-top:2rem;}
-footer {text-align:center; padding:2rem; color:#aaa;}
+.order-section h2 {text-align:center; margin-bottom:1rem; color:#c0392b;}
+.order-section input, .order-section select, .order-section button {
+    width:100%; padding:0.9rem; margin-bottom:1rem; border-radius:10px; border:1px solid #ccc; font-size:1rem;
+}
+.order-section button {
+    background:#c0392b; color:#fff; border:none; cursor:pointer;
+    font-weight:bold;
+}
+.order-section button:hover {background:#e74c3c;}
 
-@media (max-width:768px) {.products {flex-direction:column; align-items:center;}}
-.fio-row {display:flex; gap:1rem; margin-bottom:1rem;}
+#qrCode {text-align:center; margin-top:1.5rem;}
+footer {text-align:center; padding:2rem; color:#555; font-size:0.9rem;}
+
+.fio-row {display:flex; gap:0.5rem; margin-bottom:1rem;}
 .fio-row input {flex:1;}
+@media (max-width:768px){.products {flex-direction:column; align-items:center;}}
 </style>
 </head>
 <body>
 
 <header>
 <h1>Свежее богатство Камчатки – Красная Икра</h1>
-<p>Успейте заказать сегодня! Горбуша, Форель — чистый натурпродукт, прямо с Камчатки. Приятный сливочный вкус, без горечи и добавок. Лучший подарок для настоящих гурманов!</p>
+<p>Горбуша и Форель – чистый натурпродукт, привезённый лично с Камчатки. Приятный сливочный вкус, без горечи и добавок. Закажите прямо сейчас!</p>
 </header>
 
 <main>
@@ -66,28 +59,22 @@ footer {text-align:center; padding:2rem; color:#aaa;}
     <div class="product">
         <img src="images/ikra250.jpg" alt="Икра 250г">
         <h2>Икра 250г — 1000 ₽</h2>
-        <p>Малосолка, свежесть Камчатки!</p>
-        <div class="ikra-drop" style="top:10px; left:20px;"></div>
-        <div class="ikra-drop" style="top:40px; left:180px; animation-duration:3s;"></div>
+        <p>Свежая, малосолка</p>
     </div>
     <div class="product">
         <img src="images/ikra500.jpg" alt="Икра 500г">
         <h2>Икра 500г — 1600 ₽</h2>
-        <p>Лучший выбор для праздничного стола!</p>
-        <div class="ikra-drop" style="top:20px; left:50px;"></div>
-        <div class="ikra-drop" style="top:60px; left:150px; animation-duration:3.5s;"></div>
+        <p>Идеально для праздничного стола</p>
     </div>
     <div class="product">
         <img src="images/ikra1000.jpg" alt="Икра 1кг">
         <h2>Икра 1кг — 3000 ₽</h2>
-        <p>Для настоящих ценителей деликатесов!</p>
-        <div class="ikra-drop" style="top:15px; left:30px;"></div>
-        <div class="ikra-drop" style="top:50px; left:160px; animation-duration:4.2s;"></div>
+        <p>Для настоящих ценителей деликатесов</p>
     </div>
 </section>
 
 <section class="order-section">
-<h2>Закажите прямо сейчас и получите свежую икру!</h2>
+<h2>Заказать свежую икру</h2>
 
 <div class="fio-row">
 <input type="text" id="lastname" placeholder="Фамилия">
@@ -95,23 +82,17 @@ footer {text-align:center; padding:2rem; color:#aaa;}
 <input type="text" id="middlename" placeholder="Отчество">
 </div>
 
-<label for="address">Адрес доставки:</label>
-<input type="text" id="address" placeholder="Улица, дом, квартира">
-
-<label for="productSelect">Выберите фасовку:</label>
+<input type="text" id="address" placeholder="Адрес доставки">
 <select id="productSelect">
     <option value="Икра 250г - 1000 ₽">250 г — 1000 ₽</option>
     <option value="Икра 500г - 1600 ₽">500 г — 1600 ₽</option>
     <option value="Икра 1кг - 3000 ₽">1 кг — 3000 ₽</option>
 </select>
-
-<label for="quantity">Количество:</label>
 <input type="number" id="quantity" min="1" value="1">
 
-<button id="orderBtn">Заказать и оплатить по СБП</button>
+<button id="orderBtn">Заказать и оплатить</button>
 <div id="qrCode"></div>
 </section>
-
 </main>
 
 <footer>
@@ -120,8 +101,7 @@ footer {text-align:center; padding:2rem; color:#aaa;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-const orderBtn = document.getElementById('orderBtn');
-orderBtn.addEventListener('click', () => {
+document.getElementById('orderBtn').addEventListener('click', () => {
     const lastname = document.getElementById('lastname').value;
     const firstname = document.getElementById('firstname').value;
     const middlename = document.getElementById('middlename').value;
@@ -129,7 +109,7 @@ orderBtn.addEventListener('click', () => {
     const product = document.getElementById('productSelect').value;
     const quantity = document.getElementById('quantity').value;
 
-    if(!firstname||!lastname||!middlename||!address||!quantity){
+    if(!lastname || !firstname || !middlename || !address || !quantity){
         alert('Пожалуйста, заполните все поля.');
         return;
     }
@@ -138,13 +118,7 @@ orderBtn.addEventListener('click', () => {
     document.getElementById('qrCode').innerHTML = '';
     new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
 });
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
-},{threshold:0.2});
-
-document.querySelectorAll('.product').forEach(el => observer.observe(el));
-observer.observe(document.querySelector('.order-section'));
 </script>
+
 </body>
 </html>
