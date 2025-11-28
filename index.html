@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: 'Montserrat', sans-serif; background: #fff0f5; color: #333; scroll-behavior: smooth;}
+body {font-family: 'Montserrat', sans-serif; background: #121212; color: #fff; scroll-behavior: smooth;}
 header {
     position: relative;
     height: 70vh;
@@ -16,22 +16,22 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
-    background: url('images/header-bg.jpg') center/cover no-repeat fixed;
+    color: #fff;
+    background: #1a1a1a url('images/header-bg.jpg') center/cover no-repeat fixed;
 }
 header::after {
     content: "";
     position: absolute;
     top:0; left:0; right:0; bottom:0;
-    background: rgba(255, 77, 77, 0.5);
+    background: rgba(0,0,0,0.6);
 }
-header h1 {font-size: 3rem; z-index:1; position: relative; margin-bottom: 1rem;}
-header p {font-size: 1.2rem; z-index:1; position: relative; max-width: 800px;}
+header h1 {font-size: 3rem; z-index:1; position: relative; margin-bottom: 1rem; color:#ff3b3b;}
+header p {font-size: 1.2rem; z-index:1; position: relative; max-width: 800px; color:#f0f0f0;}
 
 main {padding: 3rem 1rem;}
 .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
 .product {
-    background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background: #1e1e1e; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     width: 280px; padding: 1rem; text-align: center;
     transition: transform 0.5s, box-shadow 0.5s, opacity 1s;
     opacity: 0; transform: translateY(50px);
@@ -39,31 +39,38 @@ main {padding: 3rem 1rem;}
 .product.visible {opacity:1; transform: translateY(0);}
 .product img {width: 100%; border-radius: 15px; margin-bottom: 1rem; transition: transform 0.5s;}
 .product img:hover {transform: scale(1.08);}
-.product h2 {font-size: 1.4rem; margin-bottom: 0.5rem;}
-.product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;}
-.product .desc {font-size: 0.9rem; color:#555;}
+.product h2 {font-size: 1.4rem; margin-bottom: 0.5rem; color:#ff3b3b;}
+.product p {margin-bottom: 1rem; font-weight: bold; color: #ff6600; font-size: 1.2rem;}
+.product .desc {font-size: 0.9rem; color:#ccc;}
 
 .order-section {
     max-width: 700px; margin: 0 auto;
-    background: linear-gradient(160deg,#fff3f0,#ffe6e6);
-    padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    background: #1e1e1e;
+    padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     transition: opacity 1s, transform 1s; opacity:0; transform: translateY(50px);
 }
 .order-section.visible {opacity:1; transform: translateY(0);}
-.order-section h2 {text-align: center; margin-bottom: 1.5rem; color: #ff4d4d;}
+.order-section h2 {text-align: center; margin-bottom: 1.5rem; color:#ff3b3b;}
 .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 500;}
-.order-section input, .order-section select {width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem;}
+.order-section input, .order-section select {
+    width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid #555; background:#121212; color:#fff; font-size: 1rem;
+}
+.order-section input::placeholder {color:#aaa;}
 .order-section button {
     margin-top: 1.5rem; width: 100%; padding: 1rem;
-    background: linear-gradient(90deg,#ff4d4d,#ff9999);
-    color: white; font-size: 1.2rem; border: none; border-radius: 12px; cursor: pointer;
+    background: #ff3b3b; color: white; font-size: 1.2rem; border: none; border-radius: 12px; cursor: pointer;
     transition: all 0.3s;
 }
-.order-section button:hover {background: linear-gradient(90deg,#e60000,#ff6666); transform: scale(1.05);}
+.order-section button:hover {background: #ff6600; transform: scale(1.05);}
 #qrCode {text-align: center; margin-top: 2rem;}
-footer {text-align: center; padding: 2rem; color: #666;}
+footer {text-align: center; padding: 2rem; color: #aaa;}
 
-@media (max-width:768px) {.products {flex-direction: column; align-items: center;}}
+@media (max-width:768px) {
+    .products {flex-direction: column; align-items: center;}
+    .fio-row {flex-direction: column;}
+}
+.fio-row {display: flex; gap: 1rem;}
+.fio-row input {flex:1;}
 </style>
 </head>
 <body>
@@ -93,18 +100,22 @@ footer {text-align: center; padding: 2rem; color: #666;}
         <p>3000 ₽</p>
         <p class="desc">Не горчит, приятный сливочный вкус.</p>
     </div>
+    <div class="product">
+        <img src="images/ikra_extra1.jpg" alt="Икра 500г контейнер">
+        <h2>Икра 500г – Контейнер</h2>
+        <p>1600 ₽</p>
+        <p class="desc">Свежая икра, горбуша форель.</p>
+    </div>
 </section>
 
 <section class="order-section">
 <h2>Заказать свежую икру</h2>
-<label for="firstname">Имя:</label>
-<input type="text" id="firstname" placeholder="Имя">
 
-<label for="lastname">Фамилия:</label>
+<div class="fio-row">
 <input type="text" id="lastname" placeholder="Фамилия">
-
-<label for="middlename">Отчество:</label>
+<input type="text" id="firstname" placeholder="Имя">
 <input type="text" id="middlename" placeholder="Отчество">
+</div>
 
 <label for="address">Адрес доставки:</label>
 <input type="text" id="address" placeholder="Улица, дом, квартира">
@@ -133,8 +144,8 @@ footer {text-align: center; padding: 2rem; color: #666;}
 <script>
 const orderBtn = document.getElementById('orderBtn');
 orderBtn.addEventListener('click', () => {
-    const firstname = document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;
+    const firstname = document.getElementById('firstname').value;
     const middlename = document.getElementById('middlename').value;
     const address = document.getElementById('address').value;
     const product = document.getElementById('productSelect').value;
@@ -145,12 +156,12 @@ orderBtn.addEventListener('click', () => {
         return;
     }
 
-    const paymentText = `Оплата по СБП:\n${product}\nКоличество: ${quantity}\nИмя: ${firstname} ${middlename} ${lastname}\nАдрес: ${address}`;
+    const paymentText = `Оплата по СБП:\n${product}\nКоличество: ${quantity}\nФИО: ${lastname} ${firstname} ${middlename}\nАдрес: ${address}`;
     document.getElementById('qrCode').innerHTML = '';
     new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
 });
 
-// Анимация появления элементов при скролле
+// Анимация появления
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 },{threshold:0.2});
