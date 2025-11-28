@@ -1,218 +1,103 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Свежая красная икра с Камчатки – Купить прямо сейчас!</title>
-<style>
-  /* Сброс стилей */
-  * {margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif;}
-
-  body {
-    background-color: #fff8f0;
-    color: #333;
-    line-height: 1.6;
-  }
-
-  header {
-    background: linear-gradient(to right, #e60000, #ff6600);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-  }
-  header p {
-    font-size: 1.2rem;
-  }
-
-  /* Галерея */
-  #gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 30px 20px;
-    background-color: #fff2e6;
-  }
-  #gallery img {
-    width: 280px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-  }
-  #gallery img:hover {transform: scale(1.05);}
-
-  /* Варианты фасовки */
-  #packages {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #ffe6e6;
-  }
-  #packages h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #e60000;
-  }
-  #packages .package {
-    display: inline-block;
-    border: 2px solid #e60000;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin: 10px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    background-color: #fff;
-  }
-
-  /* Форма заказа */
-  #order {
-    background-color: #fff2e6;
-    padding: 30px 20px;
-    text-align: center;
-  }
-  #order h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #e60000;
-  }
-  #order form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  #order input, #order select, #order button {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  #order button {
-    background-color: #e60000;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  #order button:hover {background-color: #b30000;}
-
-  /* Всплывающее окно с QR-кодом */
-  #qrModal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left:0; top:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.7);
-    justify-content: center;
-    align-items: center;
-  }
-  #qrModal .modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 350px;
-    width: 90%;
-    position: relative;
-  }
-  #qrModal .modal-content img {
-    width: 250px;
-    height: 250px;
-  }
-  #qrModal .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #e60000;
-  }
-
-  /* Адаптив */
-  @media(max-width: 768px){
-    #gallery img {width: 90%; height: auto;}
-    #packages .package {width: 80%; margin: 10px auto;}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красная икра</title>
+    <style>
+        /* Сброс стилей */
+        * {margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif;}
+        body {background: #fff3f0; color: #333;}
+        header {background: #ff4d4d; color: white; text-align: center; padding: 2rem;}
+        header h1 {font-size: 2.5rem;}
+        header p {font-size: 1.2rem; margin-top: 0.5rem;}
+        main {padding: 2rem;}
+        .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
+        .product {background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px; padding: 1rem; text-align: center;}
+        .product img {width: 100%; border-radius: 10px; margin-bottom: 1rem;}
+        .product h2 {font-size: 1.3rem; margin-bottom: 0.5rem;}
+        .product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d;}
+        .order-section {max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);}
+        .order-section h2 {text-align: center; margin-bottom: 1rem; color: #ff4d4d;}
+        .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem;}
+        .order-section input, .order-section select {width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc;}
+        .order-section button {margin-top: 1.5rem; width: 100%; padding: 1rem; background: #ff4d4d; color: white; font-size: 1.2rem; border: none; border-radius: 8px; cursor: pointer;}
+        .order-section button:hover {background: #e60000;}
+        #qrCode {text-align: center; margin-top: 2rem;}
+        footer {text-align: center; padding: 2rem; color: #666;}
+        @media (max-width:768px) {
+            .products {flex-direction: column; align-items: center;}
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Красная икра в контейнерах</h1>
+        <p>Свежая, качественная икра от 2500 ₽. Удобная доставка и оплата по СБП</p>
+    </header>
+    <main>
+        <section class="products">
+            <div class="product">
+                <img src="https://via.placeholder.com/250x200/ff9999/fff?text=Икра+100г" alt="Икра 100г">
+                <h2>Икра 100г</h2>
+                <p>2500 ₽</p>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250x200/ff6666/fff?text=Икра+200г" alt="Икра 200г">
+                <h2>Икра 200г</h2>
+                <p>4500 ₽</p>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/250x200/ff3333/fff?text=Икра+300г" alt="Икра 300г">
+                <h2>Икра 300г</h2>
+                <p>6500 ₽</p>
+            </div>
+        </section>
 
-<header>
-  <h1>Свежая красная икра с Камчатки – прямо к вам!</h1>
-  <p>Крупная, сочная, из свежего улова. Доставка по всей России.</p>
-</header>
+        <section class="order-section">
+            <h2>Заказать</h2>
+            <label for="productSelect">Выберите продукт:</label>
+            <select id="productSelect">
+                <option value="Икра 100г - 2500 ₽">Икра 100г - 2500 ₽</option>
+                <option value="Икра 200г - 4500 ₽">Икра 200г - 4500 ₽</option>
+                <option value="Икра 300г - 6500 ₽">Икра 300г - 6500 ₽</option>
+            </select>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" placeholder="Ваше имя">
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" placeholder="+7 (___) ___-__-__">
+            <button id="orderBtn">Заказать</button>
+            <div id="qrCode"></div>
+        </section>
+    </main>
+    <footer>
+        © 2025 Красная Икра. Все права защищены.
+    </footer>
 
-<section id="gallery">
-  <img src="https://images.unsplash.com/photo-1600117076642-62f2db22f099?crop=entropy&cs=tinysrgb&fit=max&h=200&w=280" alt="Красная икра крупным планом">
-  <img src="https://images.unsplash.com/photo-1587399359580-5b9358707c1c?crop=entropy&cs=tinysrgb&fit=max&h=200&w=280" alt="Икра в контейнерах">
-  <img src="https://images.unsplash.com/photo-1600381925821-4301b75b39e0?crop=entropy&cs=tinysrgb&fit=max&h=200&w=280" alt="Блины с красной икрой">
-  <img src="https://images.unsplash.com/photo-1617196030578-2aa84a0a6e15?crop=entropy&cs=tinysrgb&fit=max&h=200&w=280" alt="Семга и красная икра">
-  <img src="https://images.unsplash.com/photo-1617196030575-7f1e5d2c8d64?crop=entropy&cs=tinysrgb&fit=max&h=200&w=280" alt="Лосось и икра">
-</section>
+    <!-- QR код -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        const orderBtn = document.getElementById('orderBtn');
+        orderBtn.addEventListener('click', () => {
+            const product = document.getElementById('productSelect').value;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            if(!name || !phone) {
+                alert('Пожалуйста, заполните все поля.');
+                return;
+            }
 
-<section id="packages">
-  <h2>Выберите фасовку</h2>
-  <div class="package">100 г – 450 ₽</div>
-  <div class="package">250 г – 1000 ₽</div>
-  <div class="package">500 г – 1900 ₽</div>
-  <div class="package">1 кг – 3500 ₽</div>
-</section>
-
-<section id="order">
-  <h2>Оформить заказ за 2 минуты!</h2>
-  <form id="orderForm">
-    <input type="text" id="name" name="name" placeholder="Фамилия и инициалы" required>
-    <input type="text" id="address" name="address" placeholder="Адрес доставки" required>
-    <input type="number" id="quantity" name="quantity" placeholder="Количество фасовок" min="1" value="1" required>
-    <select id="volume" name="volume">
-      <option value="100">100 г – 450 ₽</option>
-      <option value="250">250 г – 1000 ₽</option>
-      <option value="500">500 г – 1900 ₽</option>
-      <option value="1000">1 кг – 3500 ₽</option>
-    </select>
-    <input type="text" id="payment" name="payment" placeholder="Оплата через СБП" readonly value="Оплата по QR-коду">
-    <button type="submit">Оформить заказ</button>
-  </form>
-</section>
-
-<!-- Всплывающее окно с QR-кодом -->
-<div id="qrModal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h3>Сканируйте QR-код для оплаты СБП</h3>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/QR_code_for_mobile_English_Wikipedia.png" alt="QR-код для оплаты">
-  </div>
-</div>
-
-<script>
-  const orderForm = document.getElementById('orderForm');
-  const qrModal = document.getElementById('qrModal');
-  const closeBtn = document.querySelector('.close-btn');
-
-  orderForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    qrModal.style.display = 'flex';
-  });
-
-  closeBtn.addEventListener('click', function(){
-    qrModal.style.display = 'none';
-  });
-
-  window.addEventListener('click', function(e){
-    if(e.target === qrModal){
-      qrModal.style.display = 'none';
-    }
-  });
-</script>
-
+            // Генерация текста для СБП (можно заменить на реальную ссылку для QR)
+            const paymentText = `Оплата по СБП: ${product}\nИмя: ${name}\nТелефон: ${phone}`;
+            
+            document.getElementById('qrCode').innerHTML = '';
+            new QRCode(document.getElementById('qrCode'), {
+                text: paymentText,
+                width: 200,
+                height: 200
+            });
+        });
+    </script>
 </body>
 </html>
