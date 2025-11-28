@@ -3,153 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Красная Икра Премиум</title>
+<title>Свежая Икра – Горбуша форель</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Montserrat', sans-serif; background: #fff0f5; color: #333; overflow-x: hidden;}
-    header {
-        background: linear-gradient(90deg, #ff4d4d, #ff9999);
-        color: white;
-        text-align: center;
-        padding: 4rem 1rem;
-        position: relative;
-        overflow: hidden;
-    }
-    header::before {
-        content: "";
-        position: absolute;
-        top: -50px; left: -50px; right: -50px; bottom: -50px;
-        background: url('https://images.unsplash.com/photo-1600185369243-cf3f4890f57b?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-        opacity: 0.1;
-        z-index: 0;
-    }
-    header h1 {font-size: 3rem; margin-bottom: 0.5rem; position: relative; z-index:1;}
-    header p {font-size: 1.3rem; position: relative; z-index:1;}
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Montserrat', sans-serif; background: #fff0f5; color: #333; overflow-x: hidden; scroll-behavior: smooth;}
+header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url('https://images.unsplash.com/photo-1620220914454-1ff0e904c40f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+}
+header::after {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(255, 77, 77, 0.5);
+}
+header h1 {font-size: 3rem; z-index:1; position: relative; margin-bottom: 1rem;}
+header p {font-size: 1.3rem; z-index:1; position: relative; max-width: 800px;}
 
-    main {padding: 2rem 1rem;}
-    .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
-    .product {
-        background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        width: 260px; padding: 1rem; text-align: center;
-        transition: transform 0.5s, box-shadow 0.5s, opacity 1s;
-        opacity: 0; transform: translateY(50px);
-    }
-    .product.visible {opacity:1; transform: translateY(0);}
-    .product img {width: 100%; border-radius: 15px; margin-bottom: 1rem; transition: transform 0.5s;}
-    .product img:hover {transform: scale(1.08);}
-    .product h2 {font-size: 1.5rem; margin-bottom: 0.5rem;}
-    .product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;}
+main {padding: 3rem 1rem;}
+.products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
+.product {
+    background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 280px; padding: 1rem; text-align: center;
+    transition: transform 0.5s, box-shadow 0.5s, opacity 1s;
+    opacity: 0; transform: translateY(50px);
+}
+.product.visible {opacity:1; transform: translateY(0);}
+.product img {width: 100%; border-radius: 15px; margin-bottom: 1rem; transition: transform 0.5s;}
+.product img:hover {transform: scale(1.08);}
+.product h2 {font-size: 1.4rem; margin-bottom: 0.5rem;}
+.product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;}
+.product .desc {font-size: 0.9rem; color:#555;}
 
-    .order-section {
-        max-width: 600px; margin: 0 auto;
-        background: linear-gradient(160deg,#fff3f0,#ffe6e6);
-        padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        transition: opacity 1s, transform 1s; opacity:0; transform: translateY(50px);
-    }
-    .order-section.visible {opacity:1; transform: translateY(0);}
-    .order-section h2 {text-align: center; margin-bottom: 1.5rem; color: #ff4d4d;}
-    .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 500;}
-    .order-section input, .order-section select {
-        width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem;
-    }
-    .order-section button {
-        margin-top: 1.5rem; width: 100%; padding: 1rem;
-        background: linear-gradient(90deg,#ff4d4d,#ff9999);
-        color: white; font-size: 1.2rem; border: none; border-radius: 12px; cursor: pointer;
-        transition: all 0.3s;
-    }
-    .order-section button:hover {
-        background: linear-gradient(90deg,#e60000,#ff6666);
-        transform: scale(1.05);
-    }
-    #qrCode {text-align: center; margin-top: 2rem;}
-    footer {text-align: center; padding: 2rem; color: #666;}
+.order-section {
+    max-width: 650px; margin: 0 auto;
+    background: linear-gradient(160deg,#fff3f0,#ffe6e6);
+    padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: opacity 1s, transform 1s; opacity:0; transform: translateY(50px);
+}
+.order-section.visible {opacity:1; transform: translateY(0);}
+.order-section h2 {text-align: center; margin-bottom: 1.5rem; color: #ff4d4d;}
+.order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 500;}
+.order-section input, .order-section select {
+    width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid #ccc; font-size: 1rem;
+}
+.order-section button {
+    margin-top: 1.5rem; width: 100%; padding: 1rem;
+    background: linear-gradient(90deg,#ff4d4d,#ff9999);
+    color: white; font-size: 1.2rem; border: none; border-radius: 12px; cursor: pointer;
+    transition: all 0.3s;
+}
+.order-section button:hover {background: linear-gradient(90deg,#e60000,#ff6666); transform: scale(1.05);}
+#qrCode {text-align: center; margin-top: 2rem;}
+footer {text-align: center; padding: 2rem; color: #666;}
 
-    @media (max-width:768px) {.products {flex-direction: column; align-items: center;}}
+@media (max-width:768px) {.products {flex-direction: column; align-items: center;}}
 </style>
 </head>
 <body>
+
 <header>
-    <h1>Красная Икра Премиум</h1>
-    <p>Свежая, качественная икра от 2500 ₽ за 500 г. Удобная доставка и оплата по СБП</p>
+    <h1>Свежая Икра – Горбуша форель</h1>
+    <p>Лососевые пути на 2025. Чуть подвижная малосолка, позволяет насладиться всеми вкусовыми качествами. Без любых добавок чистый натурпродукт, провезенный лично с Петропавловска-Камчатского, не горчит, приятный сливочный вкус.</p>
 </header>
 
 <main>
-    <section class="products">
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1620220914454-1ff0e904c40f?auto=format&fit=crop&w=500&q=80" alt="Икра 500г">
-            <h2>Икра 500г</h2>
-            <p>2500 ₽</p>
-        </div>
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1617196039846-0a0f05b3a37f?auto=format&fit=crop&w=500&q=80" alt="Икра 1кг">
-            <h2>Икра 1кг</h2>
-            <p>5000 ₽</p>
-        </div>
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1620192209051-5bb36eb1d22b?auto=format&fit=crop&w=500&q=80" alt="Икра 250г">
-            <h2>Икра 250г</h2>
-            <p>1250 ₽</p>
-        </div>
-        <div class="product">
-            <img src="https://images.unsplash.com/photo-1601082925846-b2887c6e0e2b?auto=format&fit=crop&w=500&q=80" alt="Икра 750г">
-            <h2>Икра 750г</h2>
-            <p>3750 ₽</p>
-        </div>
-    </section>
+<section class="products">
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1620220914454-1ff0e904c40f?auto=format&fit=crop&w=500&q=80" alt="Икра 250г">
+        <h2>Икра 250г</h2>
+        <p>1000 ₽</p>
+        <p class="desc">Свежая икра, горбуша форель, чуть подвижная малосолка.</p>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1617196039846-0a0f05b3a37f?auto=format&fit=crop&w=500&q=80" alt="Икра 500г">
+        <h2>Икра 500г</h2>
+        <p>1600 ₽</p>
+        <p class="desc">Чистый натурпродукт, провезенный лично с Петропавловска-Камчатского.</p>
+    </div>
+    <div class="product">
+        <img src="https://images.unsplash.com/photo-1620192209051-5bb36eb1d22b?auto=format&fit=crop&w=500&q=80" alt="Икра 1кг">
+        <h2>Икра 1кг</h2>
+        <p>3000 ₽</p>
+        <p class="desc">Не горчит, приятный сливочный вкус, идеально для ценителей.</p>
+    </div>
+</section>
 
-    <section class="order-section">
-        <h2>Заказать</h2>
-        <label for="productSelect">Выберите продукт:</label>
-        <select id="productSelect">
-            <option value="Икра 250г - 1250 ₽">Икра 250г - 1250 ₽</option>
-            <option value="Икра 500г - 2500 ₽">Икра 500г - 2500 ₽</option>
-            <option value="Икра 750г - 3750 ₽">Икра 750г - 3750 ₽</option>
-            <option value="Икра 1кг - 5000 ₽">Икра 1кг - 5000 ₽</option>
-        </select>
-        <label for="name">Имя:</label>
-        <input type="text" id="name" placeholder="Ваше имя">
-        <label for="phone">Телефон:</label>
-        <input type="text" id="phone" placeholder="+7 (___) ___-__-__">
-        <button id="orderBtn">Заказать</button>
-        <div id="qrCode"></div>
-    </section>
+<section class="order-section">
+<h2>Заказать свежую икру</h2>
+<label for="productSelect">Выберите продукт:</label>
+<select id="productSelect">
+    <option value="Икра 250г - 1000 ₽">Икра 250г - 1000 ₽</option>
+    <option value="Икра 500г - 1600 ₽">Икра 500г - 1600 ₽</option>
+    <option value="Икра 1кг - 3000 ₽">Икра 1кг - 3000 ₽</option>
+</select>
+<label for="name">Имя:</label>
+<input type="text" id="name" placeholder="Ваше имя">
+<label for="phone">Телефон:</label>
+<input type="text" id="phone" placeholder="+7 (___) ___-__-__">
+<button id="orderBtn">Заказать</button>
+<div id="qrCode"></div>
+</section>
+
 </main>
 
 <footer>
-    © 2025 Красная Икра. Все права защищены.
+© 2025 Красная Икра. Все права защищены. Свежая икра, лососевые пути на 2025.
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-    const orderBtn = document.getElementById('orderBtn');
-    orderBtn.addEventListener('click', () => {
-        const product = document.getElementById('productSelect').value;
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
+const orderBtn = document.getElementById('orderBtn');
+orderBtn.addEventListener('click', () => {
+    const product = document.getElementById('productSelect').value;
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
 
-        if(!name || !phone) {
-            alert('Пожалуйста, заполните все поля.');
-            return;
-        }
+    if(!name || !phone) {alert('Пожалуйста, заполните все поля.'); return;}
 
-        const paymentText = `Оплата по СБП:\n${product}\nИмя: ${name}\nТелефон: ${phone}`;
-        document.getElementById('qrCode').innerHTML = '';
-        new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
-    });
+    const paymentText = `Оплата по СБП:\n${product}\nИмя: ${name}\nТелефон: ${phone}`;
+    document.getElementById('qrCode').innerHTML = '';
+    new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
+});
 
-    // Появление элементов при скролле
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {threshold: 0.2});
+// Анимация появления
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {if(entry.isIntersecting) entry.target.classList.add('visible');});
+},{threshold:0.2});
 
-    document.querySelectorAll('.product').forEach(el => observer.observe(el));
-    observer.observe(document.querySelector('.order-section'));
+document.querySelectorAll('.product').forEach(el => observer.observe(el));
+observer.observe(document.querySelector('.order-section'));
 </script>
+
 </body>
 </html>
