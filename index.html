@@ -1,122 +1,17 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Свежее богатство Камчатки – Красная Икра</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Montserrat', sans-serif; background:#f7d9b5; color:#1c1c1c;}
-header {position:relative; height:50vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background:#f7c27b url('https://cdn.pixabay.com/photo/2017/02/01/21/46/salmon-2039027_1280.jpg') center/cover no-repeat;}
-header h1 {font-size:2.5rem; margin-bottom:1rem; color:#c0392b;}
-header p {font-size:1.1rem; max-width:700px; color:#333; font-weight:500;}
-main {padding:2rem 1rem;}
-.products {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-bottom:2rem;}
-.product {background:#fff; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1); width:260px; padding:1rem; text-align:center;}
-.product img {width:100%; border-radius:10px; margin-bottom:1rem;}
-.product h2 {font-size:1.3rem; margin-bottom:0.5rem; color:#c0392b;}
-.product p {margin-bottom:1rem; font-weight:bold; color:#e67e22;}
-.order-section {max-width:600px; margin:0 auto; background:#fff; padding:2rem; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
-.order-section h2 {text-align:center; margin-bottom:1rem; color:#c0392b;}
-.order-section input, .order-section select, .order-section button {width:100%; padding:0.9rem; margin-bottom:1rem; border-radius:10px; border:1px solid #ccc; font-size:1rem;}
-.order-section button {background:#c0392b; color:#fff; border:none; cursor:pointer; font-weight:bold;}
-.order-section button:hover {background:#e74c3c;}
-footer {text-align:center; padding:2rem; color:#555; font-size:0.9rem;}
-@media (max-width:768px){.products {flex-direction:column; align-items:center;}}
-
-/* Модальное окно */
-.modal {display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5);}
-.modal-content {background-color:#fff; margin:10% auto; padding:2rem; border-radius:15px; width:90%; max-width:400px; text-align:center; position:relative;}
-.close {position:absolute; top:10px; right:15px; color:#aaa; font-size:28px; font-weight:bold; cursor:pointer;}
-.close:hover {color:#000;}
-</style>
-</head>
-<body>
-
-<header>
-<h1>Свежее богатство Камчатки – Красная Икра</h1>
-<p>Горбуша и Форель — чистый натурпродукт, привезённый лично с Камчатки. Приятный сливочный вкус, без горечи и добавок. Закажите прямо сейчас!</p>
-</header>
-
-<main>
-<section class="products">
-  <div class="product">
-    <img src="https://cdn.pixabay.com/photo/2017/03/01/20/05/ikura-2105446_1280.jpg" alt="Икра 250г">
-    <h2>Икра 250г — 1000 ₽</h2>
-    <p>Свежая, малосолка</p>
-  </div>
-  <div class="product">
-    <img src="https://cdn.pixabay.com/photo/2017/02/01/21/46/salmon-2039027_1280.jpg" alt="Икра 500г">
-    <h2>Икра 500г — 1600 ₽</h2>
-    <p>Идеально для праздничного стола</p>
-  </div>
-  <div class="product">
-    <img src="https://cdn.pixabay.com/photo/2018/03/16/16/41/salmon-3230372_1280.jpg" alt="Икра 1кг">
-    <h2>Икра 1кг — 3000 ₽</h2>
-    <p>Для настоящих ценителей деликатесов</p>
-  </div>
-  <div class="product">
-    <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/caviar-1889861_1280.jpg" alt="Праздничная подача">
-    <h2>Праздничная подача</h2>
-    <p>Красная икра в красивом свете</p>
-  </div>
-</section>
-
-<section class="order-section">
-<h2>Заказать свежую икру</h2>
-<input type="text" id="fio" placeholder="Фамилия Имя Отчество">
-<input type="text" id="address" placeholder="Адрес доставки">
-<select id="productSelect">
-  <option value="Икра 250г - 1000 ₽">250 г — 1000 ₽</option>
-  <option value="Икра 500г - 1600 ₽">500 г — 1600 ₽</option>
-  <option value="Икра 1кг - 3000 ₽">1 кг — 3000 ₽</option>
-</select>
-<input type="number" id="quantity" min="1" value="1">
-<button id="orderBtn">Заказать и оплатить</button>
-</section>
-</main>
-
-<footer>
-© 2025 Красная Икра. Заказывайте лучшее прямо с Камчатки!
-</footer>
-
-<!-- Модальное окно -->
-<div id="qrModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Оплата по СБП</h2>
-    <div id="qrCodeModal"></div>
-    <p>Отсканируйте QR-код любым приложением для оплаты СБП.</p>
-  </div>
+<div class="product">
+  <img src="https://images.pexels.com/photos/1111310/pexels-photo-1111310.jpeg" alt="Икра 250г">
+  <h2>Икра 250г — 1000 ₽</h2>
+  <p>Свежая, малосолка</p>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script>
-const modal = document.getElementById('qrModal');
-const closeBtn = document.querySelector('.close');
-const qrContainer = document.getElementById('qrCodeModal');
+<div class="product">
+  <img src="https://images.pexels.com/photos/3029014/pexels-photo-3029014.jpeg" alt="Икра 500г">
+  <h2>Икра 500г — 1600 ₽</h2>
+  <p>Идеально для праздничного стола</p>
+</div>
 
-document.getElementById('orderBtn').addEventListener('click', () => {
-  const fio = document.getElementById('fio').value.trim();
-  const address = document.getElementById('address').value.trim();
-  const product = document.getElementById('productSelect').value;
-  const quantity = document.getElementById('quantity').value;
-
-  if(!fio || !address || !quantity){
-    alert('Пожалуйста, заполните все поля.');
-    return;
-  }
-
-  const paymentText = `Оплата по СБП:\n${product}\nКоличество: ${quantity}\nФИО: ${fio}\nАдрес: ${address}`;
-  qrContainer.innerHTML = '';
-  new QRCode(qrContainer, {text: paymentText, width:220, height:220});
-
-  modal.style.display = 'block';
-});
-
-closeBtn.onclick = () => { modal.style.display = 'none'; };
-window.onclick = (event) => { if(event.target === modal) modal.style.display = 'none'; };
-</script>
-</body>
-</html>
+<div class="product">
+  <img src="https://images.pexels.com/photos/3577566/pexels-photo-3577566.jpeg" alt="Икра 1кг">
+  <h2>Икра 1кг — 3000 ₽</h2>
+  <p>Для настоящих ценителей деликатесов</p>
+</div>
