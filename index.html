@@ -3,53 +3,80 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Икра Камчатки — свежая крупная икра</title>
+<title>Икра Камчатки — свежая, крупная, лучшая</title>
+<meta name="description" content="Крупная красная икра с Камчатки. Быстрая доставка. Закажите прямо сейчас — оплата по QR (СБП)." />
 <style>
+  /* --- Базовая стилизация: компактно, современно, продающе --- */
   :root{
-    --navy:#073763;
-    --accent:#c92020;
-    --warm:#f6ead6;
-    --muted:#666;
+    --navy:#083a66;
+    --accent:#c92121;
+    --bg:#fbf8f3;
     --card:#fff;
+    --muted:#6b6b6b;
     --radius:12px;
   }
   *{box-sizing:border-box}
+  html,body{height:100%}
   body{
-    margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(#fbf8f3,#f0e7da);
-    color:#111; -webkit-font-smoothing:antialiased;
+    margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,var(--bg),#f0e7da);
+    color:#111;-webkit-font-smoothing:antialiased;
   }
-  header{background:linear-gradient(90deg,var(--navy),#0b5aa3); color:#fff;padding:20px 16px}
-  header .wrap{max-width:1040px;margin:0 auto;display:flex;align-items:center;gap:16px}
+
+  header{
+    background:linear-gradient(90deg,var(--navy),#0b5aa3);
+    color:#fff;padding:18px 16px;
+  }
+  .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:14px}
   .brand{display:flex;gap:12px;align-items:center}
-  .badge{width:54px;height:54px;border-radius:10px;background:linear-gradient(#c92020,#8b1f1f);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+  .badge{width:54px;height:54px;border-radius:10px;background:linear-gradient(180deg,var(--accent),#8b1f1f);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
   header h1{margin:0;font-size:20px}
   header p{margin:0;font-size:13px;opacity:0.95}
-  main{max-width:1040px;margin:18px auto;padding:0 16px;display:grid;grid-template-columns:1fr 380px;gap:18px}
-  @media(max-width:980px){main{grid-template-columns:1fr}}
-  .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 8px 30px rgba(9,20,40,0.06)}
-  .hero{display:flex;gap:16px;align-items:center}
-  .hero h2{margin:0;color:var(--navy);font-size:20px}
-  .hero p{margin:8px 0;color:var(--muted)}
+
+  main{max-width:1100px;margin:18px auto;padding:0 16px;display:grid;grid-template-columns:1fr 380px;gap:18px}
+  @media(max-width:980px){main{grid-template-columns:1fr;padding-bottom:40px}}
+  .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 6px 24px rgba(9,20,40,0.06)}
+
+  /* Левый блок: продающие заголовки и большая галерея */
+  .hero{display:flex;gap:14px;align-items:flex-start}
+  .hero .text h2{margin:0;color:var(--navy);font-size:22px}
+  .hero .text p{margin:8px 0;color:var(--muted)}
   .tag{background:var(--accent);color:#fff;padding:6px 10px;border-radius:8px;font-weight:700}
-  .gallery{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .gallery img{width:calc(33.333% - 6.6px);height:120px;object-fit:cover;border-radius:8px;border:1px solid #eee;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-  @media(max-width:560px){.gallery img{width:48%}}
-  .variants{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .variant{padding:8px 10px;border-radius:8px;border:1px solid #eee;background:#fff;font-weight:700}
-  /* order */
-  aside .form{display:flex;flex-direction:column;gap:10px}
+
+  .gallery-grid{
+    margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+  }
+  @media(max-width:1100px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:700px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+  .gallery-grid img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:1px solid #eee;display:block}
+
+  .variants{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .variant{padding:8px 10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfbfb);border:1px solid #eee;font-weight:700}
+
+  /* Правый блок: компактная форма */
+  .order-box{position:relative;display:flex;flex-direction:column;gap:8px}
+  form#orderForm{display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.85),#fff);border:1px solid rgba(9,20,40,0.04)}
   label{font-size:13px;color:var(--muted);margin-bottom:6px}
-  input[type=text], input[type=tel], input[type=number], select{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:15px}
-  input:focus,select:focus{outline:none;border-color:var(--navy);box-shadow:0 6px 16px rgba(11,90,163,0.06)}
-  .mini{padding:8px;border-radius:8px;background:#f4f7fb;border:1px solid #e8eef9;font-weight:700;color:var(--navy)}
-  .summary{background:#fff7f7;border-radius:8px;padding:10px;border:1px solid rgba(198,40,40,0.08)}
-  button.btn{background:var(--navy);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:800;cursor:pointer}
-  button.secondary{background:transparent;border:1px solid #ddd;color:#222}
-  /* modal */
-  .modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:1200;padding:18px}
-  .modal{max-width:480px;width:100%;background:#fff;border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(9,20,40,0.35)}
-  .modal .qr{display:flex;gap:14px;align-items:center}
-  .qrimg{width:170px;height:170px;border-radius:10px;object-fit:contain;border:6px solid #fff;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+  input[type=text], input[type=tel], input[type=number], select, input[readonly]{
+    padding:10px;border-radius:8px;border:1px solid #ddd;background:white;font-size:15px;width:100%;
+  }
+  input:focus,select:focus{outline:none;border-color:var(--navy);box-shadow:0 8px 24px rgba(11,90,163,0.06)}
+  .row{display:flex;gap:8px}
+  .row .col{flex:1}
+  .summary{margin-top:6px;padding:10px;border-radius:8px;background:#fff7f7;border:1px solid rgba(198,40,40,0.06);font-size:14px}
+  .cta{display:flex;gap:8px;margin-top:6px}
+  button.btn{flex:1;background:var(--navy);color:#fff;padding:12px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
+  button.ghost{background:transparent;border:1px solid #ddd;padding:10px;border-radius:10px}
+
+  /* Модальное окно с QR */
+  .modal-backdrop{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:1200;padding:20px}
+  .modal{width:100%;max-width:520px;background:#fff;border-radius:12px;padding:18px;box-shadow:0 24px 80px rgba(9,20,40,0.35)}
+  .modal h3{margin:0 0 8px 0;color:var(--navy)}
+  .modal .body{display:flex;gap:12px;align-items:center}
+  .qrimg{width:180px;height:180px;border-radius:10px;object-fit:contain;border:6px solid #fff;box-shadow:0 12px 40px rgba(0,0,0,0.12)}
+  .modal .info{flex:1;font-size:14px;color:#222}
+  .modal .info .bold{font-weight:700;color:var(--navy)}
+  .modal .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:18px;padding-bottom:24px}
 </style>
 </head>
@@ -60,56 +87,64 @@
     <div class="brand">
       <div class="badge">ИКР</div>
       <div>
-        <h1>Икра Камчатки — Настоящая, Крупная, С Ярким Вкусом</h1>
-        <p>Свежая слабосоленая икра — поставка с берегов Камчатки. Доставим быстро и аккуратно.</p>
+        <h1>Икра Камчатки — ПОПРОБУЙТЕ ЛУЧШУЮ: крупные зерна, мощный вкус</h1>
+        <p>Слабосоленая, свежая — от рыболовов Камчатки. Закажите сейчас — мы доставим.</p>
       </div>
     </div>
   </div>
 </header>
 
 <main>
-  <!-- левая колонка: описание и реальные фото -->
+  <!-- Левая колонка: агрессивная продающая секция + много фотографий -->
   <section class="card">
     <div class="hero">
-      <div style="flex:1">
-        <h2>Попробуйте ту самую икру, о которой говорят</h2>
-        <p>Крупные зерна, деликатная слабосолка и аромат моря — идеальная подача к празднику и повседневным моментам.</p>
+      <div class="text" style="flex:1">
+        <h2>ТОП-ПРОДАЖА: Красная икра из Камчатки — для праздников и гурманов</h2>
+        <p>Крупная, сочная, с натуральным вкусом моря. Идеально на блинах, с горячим хлебом, в семейных закусках.</p>
         <div style="margin-top:8px;display:flex;gap:8px;align-items:center">
-          <div class="tag">Свежий улов — Камчатка</div>
-          <div style="margin-left:auto;color:var(--muted);font-size:13px">Фасовки: 100 г, 250 г, 500 г, 1 кг</div>
+          <div class="tag">Свежий улов • Натуральная слабосолка</div>
+          <div style="margin-left:auto;color:var(--muted);font-size:13px">Фасовки: 100 г / 250 г / 500 г / 1 кг</div>
         </div>
       </div>
       <div style="width:120px">
-        <!-- акцентная картинка -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ikorka.jpg" alt="икра" style="width:100%;height:100%;object-fit:cover;border-radius:8px">
+        <img src="https://source.unsplash.com/400x400/?red+caviar" alt="икра" style="width:100%;height:100%;object-fit:cover;border-radius:10px">
       </div>
     </div>
 
-    <h3 style="margin-top:14px;color:var(--navy)">Фотографии в упаковке — реальные снимки</h3>
-    <div class="gallery">
-      <!-- прямые стабильные ссылки — не требуют локальной папки images/ -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Lachskaviar%2C_Salmon_roe%2C_Red_caviar%2C_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F_%D0%B8%D0%BA%D1%80%D0%B0_002.JPG" alt="Икра в контейнере 250г" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Lachskaviar%2C_Salmon_roe%2C_Red_caviar%2C_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F_%D0%B8%D0%BA%D1%80%D0%B0_001.JPG" alt="Икра в баночке 100г" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ikorka.jpg" alt="Икра крупным планом" />
+    <h3 style="margin-top:14px;color:var(--navy)">Галерея — большие объёмы, блюда, лосось, людей, угощения</h3>
+    <!-- Используем unsplash динамические запросы: показывают релевантные фотки и гарантированно загружаются -->
+    <div class="gallery-grid" aria-hidden="false">
+      <img src="https://source.unsplash.com/800x600/?red+caviar,roes" alt="икра большая тарелка">
+      <img src="https://source.unsplash.com/800x600/?salmon,fish" alt="лосось">
+      <img src="https://source.unsplash.com/800x600/?trout,fish" alt="форель">
+      <img src="https://source.unsplash.com/800x600/?salmon,roe" alt="икра и рыба">
+      <img src="https://source.unsplash.com/800x600/?caviar,container" alt="тара для засолки икры">
+      <img src="https://source.unsplash.com/800x600/?people,celebration,food" alt="люди с икрой">
+      <img src="https://source.unsplash.com/800x600/?pancakes,caviar" alt="блины с икрой">
+      <img src="https://source.unsplash.com/800x600/?dinner,caviar" alt="блюда с икрой">
+      <img src="https://source.unsplash.com/800x600/?salmon,catch" alt="улов лосось">
+      <img src="https://source.unsplash.com/800x600/?kitchen,caviar" alt="приготовление блюд с икрой">
+      <img src="https://source.unsplash.com/800x600/?fish,market" alt="рыбный рынок">
+      <img src="https://source.unsplash.com/800x600/?fishing,boats" alt="лодки и улов">
     </div>
 
-    <h3 style="margin-top:14px;color:var(--navy)">Популярные фасовки — выберите и оформите быстро</h3>
+    <h3 style="margin-top:14px;color:var(--navy)">Лучшие варианты фасовки</h3>
     <div class="variants">
-      <div class="variant">100 г — закуска мечты</div>
-      <div class="variant">250 г — хит продаж</div>
-      <div class="variant">500 г — для семьи</div>
-      <div class="variant">1 кг — выгодно</div>
+      <div class="variant">100 г — идеальна для дегустации</div>
+      <div class="variant">250 г — хит продаж (лучший выбор)</div>
+      <div class="variant">500 г — для семьи и гостей</div>
+      <div class="variant">1 кг — выгодная покупка</div>
     </div>
 
-    <p style="margin-top:12px;color:var(--muted)">Упаковка — герметичные пищевые контейнеры. Доставка — в охлажденной упаковке.</p>
+    <p style="margin-top:12px;color:var(--muted)">Упаковка — герметичные пищевые контейнеры. Доставка — в охлаждающей упаковке, бережная логистика.</p>
   </section>
 
-  <!-- правая колонка: современная компактная форма -->
-  <aside class="card">
-    <form id="orderForm" class="form" autocomplete="off">
+  <!-- Правая колонка: компактная, быстрая форма -->
+  <aside class="card order-box" aria-labelledby="orderTitle">
+    <form id="orderForm" autocomplete="off" novalidate>
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <strong style="font-size:16px;color:var(--navy)">Закажите за минуту — доставим свежую икру</strong>
-        <span style="font-size:12px;color:var(--muted)">Быстро. Надёжно. Вкусно.</span>
+        <strong id="orderTitle" style="font-size:16px;color:var(--navy)">Оформление заказа — быстро и просто</strong>
+        <span style="font-size:12px;color:var(--muted)">Займёт 30 сек.</span>
       </div>
 
       <div>
@@ -117,12 +152,12 @@
         <input id="fio" name="fio" type="text" placeholder="Иванов И.И." required />
       </div>
 
-      <div style="display:flex;gap:8px">
-        <div style="flex:1">
+      <div class="row">
+        <div class="col">
           <label for="phone">Телефон</label>
           <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required />
         </div>
-        <div style="width:140px">
+        <div style="width:120px">
           <label for="count">Кол-во</label>
           <input id="count" name="count" type="number" min="1" value="1" required />
         </div>
@@ -130,11 +165,11 @@
 
       <div>
         <label for="volume">Объём фасовки</label>
-        <select id="volume" name="volume">
-          <option value="100">100 г</option>
-          <option value="250" selected>250 г — Хит (1000 ₽)</option>
-          <option value="500">500 г</option>
-          <option value="1000">1 кг</option>
+        <select id="volume" name="volume" aria-label="Объём фасовки">
+          <option value="100">100 г — 450 ₽</option>
+          <option value="250" selected>250 г — HIT — 1000 ₽</option>
+          <option value="500">500 г — 1900 ₽</option>
+          <option value="1000">1 кг — 3600 ₽</option>
         </select>
       </div>
 
@@ -143,127 +178,134 @@
         <input id="address" name="address" type="text" placeholder="г. Москва, ул. Ленина, д. 1" required />
       </div>
 
+      <!-- Поле "Оплата": сделано текстовым (readonly) по требованию -->
+      <div>
+        <label for="payment">Оплата</label>
+        <input id="payment" type="text" value="Оплата по QR (СБП)" readonly />
+      </div>
+
       <div class="summary" id="summary">
         Итого: <strong id="totalSum">₽ 0</strong> — <span id="summaryText" style="color:var(--muted)">проверьте данные</span>
       </div>
 
-      <div style="display:flex;gap:8px">
+      <div class="cta">
         <button type="button" class="btn" id="submitBtn">Оформить заказ</button>
-        <button type="button" class="btn secondary" id="clearBtn">Очистить</button>
+        <button type="button" class="ghost" id="clearBtn">Очистить</button>
       </div>
 
       <div style="margin-top:10px;font-size:13px;color:var(--muted)">
-        <strong>Оплата:</strong> после нажатия «Оформить заказ» во всплывающем окне появится QR-код (СБП). Его можно заменить на ваш.
+        Нажмите «Оформить заказ» — во всплывающем окне отобразится QR (СБП) для оплаты. После оплаты мы свяжемся с вами.
       </div>
     </form>
   </aside>
 </main>
 
-<!-- модал с QR -->
-<div id="modal" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-labelledby="modalTitle">
-    <h3 id="modalTitle" style="color:var(--navy)">Оплата по QR — СБП</h3>
-    <div class="qr" style="margin-top:10px">
-      <img id="qrImg" class="qrimg" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=SBP_payment_for_order" alt="QR для оплаты" />
-      <div style="flex:1">
-        <div id="modalOrderInfo" style="font-weight:700;color:var(--navy)">—</div>
+<!-- Модальное окно: QR -->
+<div id="modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" role="document">
+    <h3 id="modalTitle">Оплатите заказ — СБП (QR)</h3>
+    <div class="body" style="margin-top:10px">
+      <img id="qrImg" class="qrimg" src="" alt="QR-код для оплаты" />
+      <div class="info">
+        <div class="bold" id="modalOrderInfo">—</div>
         <div id="modalSum" style="margin-top:8px;color:var(--muted)">Сумма: ₽ 0</div>
-        <div style="margin-top:8px;font-size:13px;color:var(--muted)">Отсканируйте QR в вашем банковском приложении через СБП и оплатите. После оплаты мы свяжемся для подтверждения.</div>
+        <div style="margin-top:10px;font-size:13px;color:var(--muted)">Отсканируйте QR вашим банковским приложением через СБП и оплатите. После оплаты нажмите «Я оплатил» — мы начнём сбор и отправку.</div>
       </div>
     </div>
-    <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
-      <button class="btn secondary" id="modalClose">Отменить</button>
+
+    <div class="actions">
+      <button class="ghost" id="modalClose">Отменить</button>
       <button class="btn" id="modalDone">Я оплатил</button>
     </div>
   </div>
 </div>
 
 <footer>
-  <small>© Икра Камчатки — свежий улов. Контакты в заказе.</small>
+  <small>© Икра Камчатки — свежий улов. Контакт в заказе. Доставка в охлаждающей упаковке.</small>
 </footer>
 
 <script>
-/* Цены: измените при необходимости. По вашему требованию: 250г = 1000 ₽ */
-const prices = {
-  "100": 450,
-  "250": 1000,   // <-- ваша новая цена за 250 г
-  "500": 1900,
-  "1000": 3600
-};
+/* ========== Настройки (изменяйте при необходимости) ========== */
+/* Цена в рублях: 250 г = 1000 ₽ по вашему требованию */
+const prices = {"100":450,"250":1000,"500":1900,"1000":3600};
 
+/* QR: по умолчанию используется публичный генератор QR (api.qrserver) с заглушкой.
+   Замените значение qrSrc на прямой URL к вашему реальному QR (PNG/JPG),
+   либо на текстовую строку, которую нужно закодировать (в этом случае используется api.qrserver).
+   Пример статической картинки: qrSrc = 'https://example.com/my-sbp-qr.png'
+   Пример динамического кода (строка данных): qrSrc = encodeURIComponent('SBP:...ваши реквизиты...');
+*/
+let qrSrc = ''; // <-- здесь можно поставить URL вашей картинки QR (лучше абсолютный URL)
+const defaultQrText = encodeURIComponent('Оплата по СБП — Икра Камчатки — пожалуйста, укажите в примечании ФИО');
+const defaultQrAPI = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + defaultQrText;
+
+/* ========== Элементы DOM ========== */
 const el = id => document.getElementById(id);
-const volume = el('volume');
-const count = el('count');
-const totalSum = el('totalSum');
-const summaryText = el('summaryText');
-const submitBtn = el('submitBtn');
-const clearBtn = el('clearBtn');
-const modal = el('modal');
-const modalOrderInfo = el('modalOrderInfo');
-const modalSum = el('modalSum');
-const qrImg = el('qrImg');
+const volume = el('volume'), count = el('count');
+const totalSum = el('totalSum'), summaryText = el('summaryText');
+const submitBtn = el('submitBtn'), clearBtn = el('clearBtn');
+const modal = el('modal'), qrImg = el('qrImg');
+const modalOrderInfo = el('modalOrderInfo'), modalSum = el('modalSum');
 
-// обновление суммы
+/* --- Логика обновления суммы --- */
 function updateUI(){
   const vol = volume.value;
-  const cnt = Number(count.value) || 1;
+  const qty = Number(count.value) || 1;
   const unit = prices[vol] || 0;
-  const sum = unit * cnt;
+  const sum = unit * qty;
   totalSum.textContent = '₽ ' + sum.toLocaleString('ru-RU');
-  summaryText.textContent = `${cnt} × ${vol} г`;
+  summaryText.textContent = `${qty} × ${vol} г`;
 }
 updateUI();
-
 volume.addEventListener('change', updateUI);
 count.addEventListener('input', updateUI);
 
-// очистка
-clearBtn.addEventListener('click', () => {
+/* --- Очистка формы --- */
+clearBtn.addEventListener('click', ()=>{
   el('orderForm').reset();
   count.value = 1;
   volume.value = '250';
   updateUI();
 });
 
-// Оформление — в модальном окне показываем QR и данные
-submitBtn.addEventListener('click', () => {
+/* --- Оформление заказа: показываем модал с QR --- */
+submitBtn.addEventListener('click', ()=>{
   const fio = el('fio').value.trim();
   const phone = el('phone').value.trim();
   const address = el('address').value.trim();
   if(!fio || !phone || !address){
-    alert('Заполните ФИО, телефон и адрес.');
+    alert('Заполните ФИО, телефон и адрес доставки.');
     return;
   }
   const vol = volume.value;
-  const cnt = Number(count.value) || 1;
+  const qty = Number(count.value) || 1;
   const unit = prices[vol] || 0;
-  const sum = unit * cnt;
+  const sum = unit * qty;
 
-  modalOrderInfo.textContent = `${fio} — ${cnt} × ${vol} г`;
+  // Обновляем текст в модальном окне
+  modalOrderInfo.textContent = `${fio} — ${qty} × ${vol} г`;
   modalSum.textContent = 'Сумма: ₽ ' + sum.toLocaleString('ru-RU');
+
+  // Подставляем QR: если задан qrSrc (прямая ссылка на картинку), используем её.
+  // Иначе формируем QR через api.qrserver с текстовой заглушкой (вы можете заменить defaultQrText).
+  if(qrSrc && qrSrc.trim()){
+    qrImg.src = qrSrc;
+  } else {
+    qrImg.src = defaultQrAPI;
+  }
 
   // Показываем модал
   modal.style.display = 'flex';
   modal.setAttribute('aria-hidden','false');
-
-  // QR: по умолчанию используем публичный генератор QR (показывает картинку).
-  // Замените на ваш QR: qrImg.src = 'https://link-to-your-qr.png';
-  // Или на SBP-сформированный URL: qrImg.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ВАШ_ТЕКСТ';
 });
 
-// Закрыть модал
-el('modalClose').addEventListener('click', () => {
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-});
-el('modalDone').addEventListener('click', () => {
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden','true');
-  alert('Спасибо! После оплаты мы свяжемся для подтверждения доставки.');
-});
-modal.addEventListener('click', (e) => {
-  if(e.target === modal){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); }
-});
+/* --- Модал: закрыть и "оплатил" --- */
+el('modalClose').addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+el('modalDone').addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); alert('Спасибо! После оплаты мы свяжемся с вами для подтверждения доставки.'); });
+modal.addEventListener('click', (e)=>{ if(e.target === modal){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); } });
+
+/* Дополнительно: клавиша ESC закрывает модал */
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ if(modal.style.display === 'flex'){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); } }});
 </script>
 </body>
 </html>
