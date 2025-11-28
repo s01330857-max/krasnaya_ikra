@@ -7,11 +7,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * {margin:0; padding:0; box-sizing:border-box;}
-body {font-family:'Montserrat', sans-serif; background:#f5f5f5; color:#1c1c1c; scroll-behavior:smooth;}
+body {font-family:'Montserrat', sans-serif; background:#f7d9b5; color:#1c1c1c; scroll-behavior:smooth;}
 header {
     position:relative; height:50vh;
     display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;
-    background:#f0e8df url('images/header-bg.jpg') center/cover no-repeat;
+    background:#f7c27b url('https://cdn.pixabay.com/photo/2017/02/01/21/46/salmon-2039027_1280.jpg') center/cover no-repeat;
 }
 header h1 {font-size:2.5rem; margin-bottom:1rem; color:#c0392b;}
 header p {font-size:1.1rem; max-width:700px; color:#333; font-weight:500;}
@@ -42,8 +42,6 @@ main {padding:2rem 1rem;}
 #qrCode {text-align:center; margin-top:1.5rem;}
 footer {text-align:center; padding:2rem; color:#555; font-size:0.9rem;}
 
-.fio-row {display:flex; gap:0.5rem; margin-bottom:1rem;}
-.fio-row input {flex:1;}
 @media (max-width:768px){.products {flex-direction:column; align-items:center;}}
 </style>
 </head>
@@ -51,37 +49,37 @@ footer {text-align:center; padding:2rem; color:#555; font-size:0.9rem;}
 
 <header>
 <h1>Свежее богатство Камчатки – Красная Икра</h1>
-<p>Горбуша и Форель – чистый натурпродукт, привезённый лично с Камчатки. Приятный сливочный вкус, без горечи и добавок. Закажите прямо сейчас!</p>
+<p>Горбуша и Форель — чистый натурпродукт, привезённый лично с Камчатки. Приятный сливочный вкус, без горечи и добавок. Закажите прямо сейчас!</p>
 </header>
 
 <main>
 <section class="products">
     <div class="product">
-        <img src="images/ikra250.jpg" alt="Икра 250г">
+        <img src="https://cdn.pixabay.com/photo/2017/03/01/20/05/ikura-2105446_1280.jpg" alt="Икра 250г">
         <h2>Икра 250г — 1000 ₽</h2>
         <p>Свежая, малосолка</p>
     </div>
     <div class="product">
-        <img src="images/ikra500.jpg" alt="Икра 500г">
+        <img src="https://cdn.pixabay.com/photo/2017/02/01/21/46/salmon-2039027_1280.jpg" alt="Икра 500г">
         <h2>Икра 500г — 1600 ₽</h2>
         <p>Идеально для праздничного стола</p>
     </div>
     <div class="product">
-        <img src="images/ikra1000.jpg" alt="Икра 1кг">
+        <img src="https://cdn.pixabay.com/photo/2018/03/16/16/41/salmon-3230372_1280.jpg" alt="Икра 1кг">
         <h2>Икра 1кг — 3000 ₽</h2>
         <p>Для настоящих ценителей деликатесов</p>
+    </div>
+    <div class="product">
+        <img src="https://cdn.pixabay.com/photo/2016/12/06/18/27/caviar-1889861_1280.jpg" alt="Дополнительное фото">
+        <h2>Праздничная подача</h2>
+        <p>Красная икра в лучшем виде</p>
     </div>
 </section>
 
 <section class="order-section">
 <h2>Заказать свежую икру</h2>
 
-<div class="fio-row">
-<input type="text" id="lastname" placeholder="Фамилия">
-<input type="text" id="firstname" placeholder="Имя">
-<input type="text" id="middlename" placeholder="Отчество">
-</div>
-
+<input type="text" id="fio" placeholder="Фамилия Имя Отчество">
 <input type="text" id="address" placeholder="Адрес доставки">
 <select id="productSelect">
     <option value="Икра 250г - 1000 ₽">250 г — 1000 ₽</option>
@@ -102,19 +100,17 @@ footer {text-align:center; padding:2rem; color:#555; font-size:0.9rem;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 document.getElementById('orderBtn').addEventListener('click', () => {
-    const lastname = document.getElementById('lastname').value;
-    const firstname = document.getElementById('firstname').value;
-    const middlename = document.getElementById('middlename').value;
+    const fio = document.getElementById('fio').value;
     const address = document.getElementById('address').value;
     const product = document.getElementById('productSelect').value;
     const quantity = document.getElementById('quantity').value;
 
-    if(!lastname || !firstname || !middlename || !address || !quantity){
+    if(!fio || !address || !quantity){
         alert('Пожалуйста, заполните все поля.');
         return;
     }
 
-    const paymentText = `Оплата по СБП:\n${product}\nКоличество: ${quantity}\nФИО: ${lastname} ${firstname} ${middlename}\nАдрес: ${address}`;
+    const paymentText = `Оплата по СБП:\n${product}\nКоличество: ${quantity}\nФИО: ${fio}\nАдрес: ${address}`;
     document.getElementById('qrCode').innerHTML = '';
     new QRCode(document.getElementById('qrCode'), {text: paymentText, width: 220, height: 220});
 });
