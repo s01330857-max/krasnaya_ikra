@@ -1,103 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Красная икра</title>
-    <style>
-        /* Сброс стилей */
-        * {margin:0; padding:0; box-sizing:border-box; font-family: 'Arial', sans-serif;}
-        body {background: #fff3f0; color: #333;}
-        header {background: #ff4d4d; color: white; text-align: center; padding: 2rem;}
-        header h1 {font-size: 2.5rem;}
-        header p {font-size: 1.2rem; margin-top: 0.5rem;}
-        main {padding: 2rem;}
-        .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
-        .product {background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px; padding: 1rem; text-align: center;}
-        .product img {width: 100%; border-radius: 10px; margin-bottom: 1rem;}
-        .product h2 {font-size: 1.3rem; margin-bottom: 0.5rem;}
-        .product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d;}
-        .order-section {max-width: 500px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);}
-        .order-section h2 {text-align: center; margin-bottom: 1rem; color: #ff4d4d;}
-        .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem;}
-        .order-section input, .order-section select {width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc;}
-        .order-section button {margin-top: 1.5rem; width: 100%; padding: 1rem; background: #ff4d4d; color: white; font-size: 1.2rem; border: none; border-radius: 8px; cursor: pointer;}
-        .order-section button:hover {background: #e60000;}
-        #qrCode {text-align: center; margin-top: 2rem;}
-        footer {text-align: center; padding: 2rem; color: #666;}
-        @media (max-width:768px) {
-            .products {flex-direction: column; align-items: center;}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Красная Икра премиум</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Montserrat', sans-serif; background: linear-gradient(160deg, #fff3f0, #ffe6e6); color: #333;}
+    header {background: linear-gradient(90deg, #ff4d4d, #ff8080); color: white; text-align: center; padding: 3rem 1rem;}
+    header h1 {font-size: 3rem; margin-bottom: 0.5rem;}
+    header p {font-size: 1.3rem;}
+    main {padding: 2rem 1rem;}
+    .products {display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;}
+    .product {background: white; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); width: 250px; padding: 1rem; text-align: center; transition: transform 0.3s, box-shadow 0.3s;}
+    .product:hover {transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.2);}
+    .product img {width: 100%; border-radius: 12px; margin-bottom: 1rem; transition: transform 0.3s;}
+    .product img:hover {transform: scale(1.05);}
+    .product h2 {font-size: 1.4rem; margin-bottom: 0.5rem;}
+    .product p {margin-bottom: 1rem; font-weight: bold; color: #ff4d4d; font-size: 1.2rem;}
+    .order-section {max-width: 550px; margin: 0 auto; background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
+    .order-section h2 {text-align: center; margin-bottom: 1.5rem; color: #ff4d4d;}
+    .order-section label {display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 500;}
+    .order-section input, .order-section select {width: 100%; padding: 0.9rem; border-radius: 10px; border: 1px solid #ccc; font-size: 1rem;}
+    .order-section button {margin-top: 1.5rem; width: 100%; padding: 1rem; background: linear-gradient(90deg,#ff4d4d,#ff9999); color: white; font-size: 1.2rem; border: none; border-radius: 10px; cursor: pointer; transition: 0.3s;}
+    .order-section button:hover {background: linear-gradient(90deg,#e60000,#ff6666);}
+    #qrCode {text-align: center; margin-top: 2rem;}
+    footer {text-align: center; padding: 2rem; color: #666;}
+    @media (max-width:768px) {.products {flex-direction: column; align-items: center;}}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Красная икра в контейнерах</h1>
-        <p>Свежая, качественная икра от 2500 ₽. Удобная доставка и оплата по СБП</p>
-    </header>
-    <main>
-        <section class="products">
-            <div class="product">
-                <img src="https://via.placeholder.com/250x200/ff9999/fff?text=Икра+100г" alt="Икра 100г">
-                <h2>Икра 100г</h2>
-                <p>2500 ₽</p>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/250x200/ff6666/fff?text=Икра+200г" alt="Икра 200г">
-                <h2>Икра 200г</h2>
-                <p>4500 ₽</p>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/250x200/ff3333/fff?text=Икра+300г" alt="Икра 300г">
-                <h2>Икра 300г</h2>
-                <p>6500 ₽</p>
-            </div>
-        </section>
+<header>
+    <h1>Красная Икра премиум</h1>
+    <p>Свежая, качественная икра от 2500 ₽ за 500 грамм. Удобная доставка и оплата по СБП</p>
+</header>
+<main>
+    <section class="products">
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1620220914454-1ff0e904c40f?auto=format&fit=crop&w=500&q=80" alt="Икра 500г">
+            <h2>Икра 500г</h2>
+            <p>2500 ₽</p>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1617196039846-0a0f05b3a37f?auto=format&fit=crop&w=500&q=80" alt="Икра 1кг">
+            <h2>Икра 1кг</h2>
+            <p>5000 ₽</p>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1620192209051-5bb36eb1d22b?auto=format&fit=crop&w=500&q=80" alt="Икра 250г">
+            <h2>Икра 250г</h2>
+            <p>1250 ₽</p>
+        </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1601082925846-b2887c6e0e2b?auto=format&fit=crop&w=500&q=80" alt="Икра 750г">
+            <h2>Икра 750г</h2>
+            <p>3750 ₽</p>
+        </div>
+    </section>
 
-        <section class="order-section">
-            <h2>Заказать</h2>
-            <label for="productSelect">Выберите продукт:</label>
-            <select id="productSelect">
-                <option value="Икра 100г - 2500 ₽">Икра 100г - 2500 ₽</option>
-                <option value="Икра 200г - 4500 ₽">Икра 200г - 4500 ₽</option>
-                <option value="Икра 300г - 6500 ₽">Икра 300г - 6500 ₽</option>
-            </select>
-            <label for="name">Имя:</label>
-            <input type="text" id="name" placeholder="Ваше имя">
-            <label for="phone">Телефон:</label>
-            <input type="text" id="phone" placeholder="+7 (___) ___-__-__">
-            <button id="orderBtn">Заказать</button>
-            <div id="qrCode"></div>
-        </section>
-    </main>
-    <footer>
-        © 2025 Красная Икра. Все права защищены.
-    </footer>
+    <section class="order-section">
+        <h2>Заказать</h2>
+        <label for="productSelect">Выберите продукт:</label>
+        <select id="productSelect">
+            <option value="Икра 250г - 1250 ₽">Икра 250г - 1250 ₽</option>
+            <option value="Икра 500г - 2500 ₽">Икра 500г - 2500 ₽</option>
+            <option value="Икра 750г - 3750 ₽">Икра 750г - 3750 ₽</option>
+            <option value="Икра 1кг - 5000 ₽">Икра 1кг - 5000 ₽</option>
+        </select>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" placeholder="Ваше имя">
+        <label for="phone">Телефон:</label>
+        <input type="text" id="phone" placeholder="+7 (___) ___-__-__">
+        <button id="orderBtn">Заказать</button>
+        <div id="qrCode"></div>
+    </section>
+</main>
+<footer>
+    © 2025 Красная Икра. Все права защищены.
+</footer>
 
-    <!-- QR код -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script>
-        const orderBtn = document.getElementById('orderBtn');
-        orderBtn.addEventListener('click', () => {
-            const product = document.getElementById('productSelect').value;
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            
-            if(!name || !phone) {
-                alert('Пожалуйста, заполните все поля.');
-                return;
-            }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+    const orderBtn = document.getElementById('orderBtn');
+    orderBtn.addEventListener('click', () => {
+        const product = document.getElementById('productSelect').value;
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
 
-            // Генерация текста для СБП (можно заменить на реальную ссылку для QR)
-            const paymentText = `Оплата по СБП: ${product}\nИмя: ${name}\nТелефон: ${phone}`;
-            
-            document.getElementById('qrCode').innerHTML = '';
-            new QRCode(document.getElementById('qrCode'), {
-                text: paymentText,
-                width: 200,
-                height: 200
-            });
+        if(!name || !phone) {
+            alert('Пожалуйста, заполните все поля.');
+            return;
+        }
+
+        const paymentText = `Оплата по СБП:\n${product}\nИмя: ${name}\nТелефон: ${phone}`;
+
+        document.getElementById('qrCode').innerHTML = '';
+        new QRCode(document.getElementById('qrCode'), {
+            text: paymentText,
+            width: 220,
+            height: 220
         });
-    </script>
+    });
+</script>
 </body>
 </html>
