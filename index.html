@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Красная икра из Камчатки</title>
+  <style>
+    /* Стилизация под рыбацкую/русскую эстетику */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', serif; /* Классический шрифт с поддержкой кириллицы */
+      background-color: #f0eada; /* Светлый натуральный фон */
+      color: #333;
+    }
+    header {
+      background-color: #004b8d; /* Темно-синий цвет, как у морской воды и флага */
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      text-shadow: 2px 2px #00008b;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    #gallery {
+      text-align: center;
+      padding: 20px;
+    }
+    #gallery h2 {
+      font-size: 1.8em;
+      color: #cc0000;
+      text-decoration: underline;
+    }
+    #gallery img {
+      width: 30%;
+      margin: 10px;
+      border: 5px solid #ffffff;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    #packages {
+      padding: 20px;
+      background-color: #ffefdb; /* Немного желтый натуральный фон */
+    }
+    #packages h2 {
+      font-size: 1.8em;
+      color: #004b8d;
+      text-decoration: underline;
+      text-align: center;
+    }
+    #packages ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    #packages li {
+      margin: 5px 0;
+      padding: 5px;
+      display: inline-block;
+      border: 2px solid #cc0000;
+      border-radius: 4px;
+      background-color: #ffffff;
+      width: 100px;
+    }
+    #order {
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    #order h2 {
+      font-size: 1.8em;
+      color: #cc0000;
+      text-decoration: underline;
+      text-align: center;
+    }
+    #order form {
+      width: 60%;
+      max-width: 400px;
+      margin: 0 auto;
+      font-size: 1.1em;
+    }
+    #order label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    #order input[type="text"],
+    #order input[type="number"],
+    #order select {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      font-size: 1em;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    #order button {
+      background-color: #004b8d;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #order button:hover {
+      background-color: #003366;
+    }
+    #qrContainer {
+      text-align: center;
+      margin-top: 20px;
+      display: none; /* Скрываем блок с QR-кодом по умолчанию */
+    }
+    #qrContainer img {
+      width: 200px;
+      height: 200px;
+      border: 5px solid #004b8d;
+      margin-top: 10px;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Заголовок сайта -->
+  <header>
+    <h1>Самая свежая крупная красная икра с Камчатки</h1>
+    <p>Свежий улов каждый день — привезем икру к вам!</p>
+  </header>
+  <!-- Галерея изображений -->
+  <section id="gallery">
+    <h2>Галерея</h2>
+    <!-- Изображения красной икры -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Ikorka.jpg" alt="Красная икра (яркие зерна)" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Lachskaviar%2C_Salmon_roe%2C_Red_caviar%2C_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F_%D0%B8%D0%BA%D1%80%D0%B0_002.JPG" alt="Красная икра в банке" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Lachskaviar%2C_Salmon_roe%2C_Red_caviar%2C_%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%B0%D1%8F_%D0%B8%D0%BA%D1%80%D0%B0_001.JPG" alt="Банка камчатской икры" />
+  </section>
+  <!-- Список вариантов фасовки -->
+  <section id="packages">
+    <h2>Варианты фасовки</h2>
+    <ul>
+      <li>100 г</li>
+      <li>250 г</li>
+      <li>500 г</li>
+      <li>1 кг</li>
+    </ul>
+  </section>
+  <!-- Форма заказа -->
+  <section id="order">
+    <h2>Оформить заказ</h2>
+    <form id="orderForm">
+      <label for="name">Фамилия и инициалы:</label>
+      <input type="text" id="name" name="name" placeholder="Иванов И.И." required />
+      
+      <label for="address">Адрес доставки:</label>
+      <input type="text" id="address" name="address" placeholder="ул. Ленина, д. 10, кв. 5" required />
+      
+      <label for="quantity">Количество фасовок:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required />
+      
+      <label for="volume">Объем фасовки:</label>
+      <select id="volume" name="volume">
+        <option value="100">100 г</option>
+        <option value="250">250 г</option>
+        <option value="500">500 г</option>
+        <option value="1000">1 кг</option>
+      </select>
+      
+      <button type="submit">Отправить заказ</button>
+    </form>
+    <!-- Блок с QR-кодом оплаты (по умолчанию скрыт) -->
+    <div id="qrContainer">
+      <p>Отсканируйте QR-код для оплаты заказа:</p>
+      <img id="qrCode" src="https://www.publicdomainpictures.net/pictures/60000/velka/qr-code-1377119892V4F.jpg" alt="QR-код для оплаты" />
+    </div>
+  </section>
+  <script>
+    // JavaScript для обработки отправки формы и отображения QR-кода
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // предотвращаем отправку формы
+      // Отображаем блок с QR-кодом
+      document.getElementById("qrContainer").style.display = "block";
+    });
+    // Обратите внимание: для смены QR-кода замените атрибут src у <img id="qrCode"> на свой.
+  </script>
+</body>
+</html>
