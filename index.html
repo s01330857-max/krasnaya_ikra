@@ -21,32 +21,41 @@ header {
 }
 header::after {
     content:"";
-    position:absolute;
-    top:0; left:0; right:0; bottom:0;
+    position:absolute; top:0; left:0; right:0; bottom:0;
     background: rgba(0,0,0,0.3);
 }
 header h1 {font-size:3rem; z-index:1; position:relative; margin-bottom:1rem; color:#ff3b3b;}
 header p {font-size:1.2rem; z-index:1; position:relative; max-width:800px; color:#f0f0f0;}
 
 main {padding:2rem 1rem;}
-.products {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-bottom:3rem;}
+.products {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin-bottom:3rem; position:relative;}
 .product {
     background:#2e2e2e; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.5);
     width:280px; padding:1rem; text-align:center;
     transition: transform 0.5s, box-shadow 0.5s, opacity 1s;
     opacity:0; transform:translateY(50px);
+    position:relative;
+    overflow:hidden;
 }
 .product.visible {opacity:1; transform:translateY(0);}
-.product img {width:100%; border-radius:15px; margin-bottom:1rem; transition:transform 0.5s; animation:float 3s ease-in-out infinite;}
+.product img {width:100%; border-radius:15px; margin-bottom:1rem; transition: transform 0.5s;}
 .product img:hover {transform:scale(1.05);}
 .product h2 {font-size:1.4rem; margin-bottom:0.5rem; color:#ff3b3b;}
 .product p {margin-bottom:1rem; font-weight:bold; color:#ff6600; font-size:1.2rem;}
 .product .desc {font-size:0.9rem; color:#ccc;}
 
+/* Плавающая икра */
+.ikra-drop {
+    width:30px; height:30px;
+    background: url('images/ikra_small.png') no-repeat center/contain;
+    position:absolute;
+    animation:float 4s ease-in-out infinite;
+    opacity:0.8;
+}
 @keyframes float {
-  0% {transform: translateY(0px);}
-  50% {transform: translateY(-8px);}
-  100% {transform: translateY(0px);}
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(15deg); }
+    100% { transform: translateY(0) rotate(0deg); }
 }
 
 .order-section {
@@ -88,24 +97,24 @@ footer {text-align:center; padding:2rem; color:#aaa;}
         <h2>Икра 250г</h2>
         <p>1000 ₽</p>
         <p class="desc">Свежая икра, чуть подвижная малосолка.</p>
+        <div class="ikra-drop" style="top:10px; left:20px;"></div>
+        <div class="ikra-drop" style="top:40px; left:180px; animation-duration:3s;"></div>
     </div>
     <div class="product">
         <img src="images/ikra500.jpg" alt="Икра 500г">
         <h2>Икра 500г</h2>
         <p>1600 ₽</p>
         <p class="desc">Чистый натурпродукт, провезенный лично с Петропавловска-Камчатского.</p>
+        <div class="ikra-drop" style="top:20px; left:50px;"></div>
+        <div class="ikra-drop" style="top:60px; left:150px; animation-duration:3.5s;"></div>
     </div>
     <div class="product">
         <img src="images/ikra1000.jpg" alt="Икра 1кг">
         <h2>Икра 1кг</h2>
         <p>3000 ₽</p>
         <p class="desc">Не горчит, приятный сливочный вкус.</p>
-    </div>
-    <div class="product">
-        <img src="images/ikra_extra1.jpg" alt="Икра 500г контейнер">
-        <h2>Икра 500г – Контейнер</h2>
-        <p>1600 ₽</p>
-        <p class="desc">Свежая икра, горбуша форель.</p>
+        <div class="ikra-drop" style="top:15px; left:30px;"></div>
+        <div class="ikra-drop" style="top:50px; left:160px; animation-duration:4.2s;"></div>
     </div>
 </section>
 
